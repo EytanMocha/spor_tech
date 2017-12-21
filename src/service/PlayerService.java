@@ -24,7 +24,7 @@ public class PlayerService {
 			entityManagerFactory.createEntityManager();
 	
 	@GET
-	@Path("get")
+	@Path("/get")
 	public Player getCustomer(@QueryParam("id") int id){
 		return ManagerHelper.getPlayerManager().get(id); 
 	}
