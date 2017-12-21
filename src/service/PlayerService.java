@@ -19,7 +19,7 @@ public class PlayerService {
 	
 	public static EntityManagerFactory entityManagerFactory=
 			Persistence.createEntityManagerFactory("spor_tech");
-	
+
 	public static EntityManager entityManager=
 			entityManagerFactory.createEntityManager();
 	
