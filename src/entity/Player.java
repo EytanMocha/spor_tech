@@ -4,105 +4,92 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Player {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	 private String firstName;
-	 private String lastName;
-	 private int age;
-	 private int apearences;
-	 private int cockes;
-	 private int yellowFlags;
-	 private int redFlag;
-	 private int team;
-	 
-	 public Player(){
-		 
-	 }
-	 
-	public Player(int id, String firstName, String lastName, int age, int apearences, int cockes, int yellowFlags,
-			int redFlag, int team) {
-		super();
+	private String firstname;
+	private String lastname;
+	private int age;
+
+	private int yellow;
+	private int red;
+	
+	private int team;
+
+	public Player() {
+
+	}
+
+	public Player(int id, String firstname, String lastname, int age, int yellow, int red, int team) {
+
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstname = firstname;
+		this.lastname = lastname;
 		this.age = age;
-		this.apearences = apearences;
-		this.cockes = cockes;
-		this.yellowFlags = yellowFlags;
-		this.redFlag = redFlag;
+		this.yellow = yellow;
+		this.red = red;
 		this.team = team;
 	}
-	public Player(String firstName, String lastName, int age, int apearences, int cockes, int yellowFlags, int redFlag,
-			int team) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.apearences = apearences;
-		this.cockes = cockes;
-		this.yellowFlags = yellowFlags;
-		this.redFlag = redFlag;
-		this.team = team;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
-	public int getApearences() {
-		return apearences;
-	}
-	public void setApearences(int apearences) {
-		this.apearences = apearences;
-	}
-	public int getCockes() {
-		return cockes;
-	}
-	public void setCockes(int cockes) {
-		this.cockes = cockes;
-	}
-	public int getYellowFlags() {
-		return yellowFlags;
-	}
-	public void setYellowFlags(int yellowFlags) {
-		this.yellowFlags = yellowFlags;
-	}
-	public int getRedFlag() {
-		return redFlag;
-	}
-	public void setRedFlag(int redFlag) {
-		this.redFlag = redFlag;
-	}
-	public int getTeam() {
-		return team;
-	}
-	public void setTeam(int team) {
-		this.team = team;
-	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	 
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastName(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getYellow() {
+		return yellow;
+	}
+
+	public void setYellow(int yellow) {
+		this.yellow = yellow;
+	}
+
+	public int getRed() {
+		return red;
+	}
+
+	public void setRed(int red) {
+		this.red = red;
+	}
+
+	public int getTeam() {
+		return team;
+	}
+
+	public void setTeam(int team) {
+		this.team = team;
+	}
 
 }

@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.QueryParam;
 
 
-import entity.Player;
+
 import entity.Team;
 import manager.ManagerHelper;
 
@@ -19,15 +19,15 @@ import manager.ManagerHelper;
 public class TeamService {
 	
 	public static EntityManagerFactory entityManagerFactory=
-			Persistence.createEntityManagerFactory("spor_tech");
+			Persistence.createEntityManagerFactory("sportech");
 	
 	public static EntityManager entityManager=
 			entityManagerFactory.createEntityManager();
 	
 	@GET
 	@Path("get")
-	public Team getCustomer(@QueryParam("id") int id){
-		return ManagerHelper.getTeamManager().get(id); 
+	public Team getTeam(@QueryParam("id") int id){
+		return (Team)ManagerHelper.getTeamManager().get(id); 
 	}
 	
 }

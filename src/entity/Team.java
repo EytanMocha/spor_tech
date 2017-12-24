@@ -4,157 +4,117 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Team{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String teamName;
-	private String cityName;
-	private String ligue;
-	private int palyers;
+	private String name;
+	@ManyToOne
+	@JoinColumn(name="city")
+	private City city;
+	@ManyToOne
+	@JoinColumn(name="league")
+	private League league;
+
 	private String coach;
-	private String manager;
-	private String points;
-	private String score;
-	private String loses;
+	private String team_Administrator;
+	private int points;
+	private int score;
+	private int lose;
 	
 	public Team(){
 		
 	}
-	
-	public Team(String teamName, String cityName, String ligue, int palyers, String coach, String manager,
-			String points, String score, String loses) {
-		super();
-		this.teamName = teamName;
-		this.cityName = cityName;
-		this.ligue = ligue;
-		this.palyers = palyers;
-		this.coach = coach;
-		this.manager = manager;
-		this.points = points;
-		this.score = score;
-		this.loses = loses;
-	}
 
-
-	public Team(int id, String teamName, String cityName, String ligue, int palyers, String coach, String manager,
-			String points, String score, String loses) {
+	public Team(int id, String name, City city, League league, String coach, String team_Administrator, int points,
+			int score, int lose) {
 	
 		this.id = id;
-		this.teamName = teamName;
-		this.cityName = cityName;
-		this.ligue = ligue;
-		this.palyers = palyers;
+		this.name = name;
+		this.city = city;
+		this.league = league;
 		this.coach = coach;
-		this.manager = manager;
+		this.team_Administrator = team_Administrator;
 		this.points = points;
 		this.score = score;
-		this.loses = loses;
+		this.lose = lose;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	public String getTeamName() {
-		return teamName;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-
-	public String getCityName() {
-		return cityName;
+	public City getCity() {
+		return city;
 	}
 
-
-	public void setCityName(String cityName) {
-		this.cityName = cityName;
+	public void setCity(City city) {
+		this.city = city;
 	}
 
-
-	public String getLigue() {
-		return ligue;
+	public League getLeague() {
+		return league;
 	}
 
-
-	public void setLigue(String ligue) {
-		this.ligue = ligue;
+	public void setLeague(League league) {
+		this.league = league;
 	}
-
-
-	public int getPalyers() {
-		return palyers;
-	}
-
-
-	public void setPalyers(int palyers) {
-		this.palyers = palyers;
-	}
-
 
 	public String getCoach() {
 		return coach;
 	}
 
-
 	public void setCoach(String coach) {
 		this.coach = coach;
 	}
 
-
-	public String getManager() {
-		return manager;
+	public String getTeam_Administrator() {
+		return team_Administrator;
 	}
 
-
-	public void setManager(String manager) {
-		this.manager = manager;
+	public void setTeam_Administrator(String team_Administrator) {
+		this.team_Administrator = team_Administrator;
 	}
 
-
-	public String getPoints() {
+	public int getPoints() {
 		return points;
 	}
 
-
-	public void setPoints(String points) {
+	public void setPoints(int points) {
 		this.points = points;
 	}
 
-
-	public String getScore() {
+	public int getScore() {
 		return score;
 	}
 
-
-	public void setScore(String score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 
-
-	public String getLoses() {
-		return loses;
+	public int getLose() {
+		return lose;
 	}
 
-
-	public void setLoses(String loses) {
-		this.loses = loses;
+	public void setLose(int lose) {
+		this.lose = lose;
 	}
-	
-	
-	
+
 	
 }

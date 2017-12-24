@@ -1,11 +1,10 @@
 package manager;
 
-import java.util.List;
+
 
 import javax.persistence.EntityManager;
 
 import org.apache.openjpa.persistence.EntityManagerImpl;
-
 
 import entity.Player;
 

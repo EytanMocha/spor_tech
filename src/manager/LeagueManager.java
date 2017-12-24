@@ -4,37 +4,39 @@ import javax.persistence.EntityManager;
 
 import org.apache.openjpa.persistence.EntityManagerImpl;
 
-import entity.Team;
+import entity.League;
 
-public class TeamManager {
 
+public class LeagueManager {
 	private final EntityManager entityManager;
 
-	public TeamManager(EntityManager entityManager) {
+	public LeagueManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 		((EntityManagerImpl) this.entityManager).getBroker().setAllowReferenceToSiblingContext(true);
 	}
 
-	public void update(Team team) {
+	public void update(League league) {
 		entityManager.getTransaction().begin();
-		entityManager.merge(team);
+		entityManager.merge(league);
 		entityManager.getTransaction().commit();
 	}
 
-	public void create(Team team) {
+	public void create(League league) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(team);
+		entityManager.persist(league);
 		entityManager.getTransaction().commit();
 	}
 
-	public void delete(Team team) {
+	public void delete(League league) {
 		entityManager.getTransaction().begin();
-		entityManager.remove(team);
+		entityManager.remove(league);
 		entityManager.getTransaction().commit();
 	}
 
-	public Team get(int id) {
-		return entityManager.find(Team.class, id);
+	public League get(int id) {
+		return entityManager.find(League.class, id);
 	}
+
+	
 
 }

@@ -4,37 +4,36 @@ import javax.persistence.EntityManager;
 
 import org.apache.openjpa.persistence.EntityManagerImpl;
 
-import entity.Team;
+import entity.City;
 
-public class TeamManager {
 
+public class CityManger {
 	private final EntityManager entityManager;
 
-	public TeamManager(EntityManager entityManager) {
+	public CityManger(EntityManager entityManager) {
 		this.entityManager = entityManager;
 		((EntityManagerImpl) this.entityManager).getBroker().setAllowReferenceToSiblingContext(true);
 	}
 
-	public void update(Team team) {
+	public void update(City city) {
 		entityManager.getTransaction().begin();
-		entityManager.merge(team);
+		entityManager.merge(city);
 		entityManager.getTransaction().commit();
 	}
 
-	public void create(Team team) {
+	public void create(City city) {
 		entityManager.getTransaction().begin();
-		entityManager.persist(team);
+		entityManager.persist(city);
 		entityManager.getTransaction().commit();
 	}
 
-	public void delete(Team team) {
+	public void delete(City city) {
 		entityManager.getTransaction().begin();
-		entityManager.remove(team);
+		entityManager.remove(city);
 		entityManager.getTransaction().commit();
 	}
 
-	public Team get(int id) {
-		return entityManager.find(Team.class, id);
+	public City get(int id) {
+		return entityManager.find(City.class, id);
 	}
-
 }
