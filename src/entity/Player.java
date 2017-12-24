@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Player {
@@ -19,13 +18,14 @@ public class Player {
 	private int yellow;
 	private int red;
 	
-	private int team;
+	@JoinColumn(name = "team")
+	private Team team;
 
 	public Player() {
 
 	}
 
-	public Player(int id, String firstname, String lastname, int age, int yellow, int red, int team) {
+	public Player(int id, String firstname, String lastname, int age, int yellow, int red, Team team) {
 
 		this.id = id;
 		this.firstname = firstname;
@@ -84,11 +84,11 @@ public class Player {
 		this.red = red;
 	}
 
-	public int getTeam() {
+	public Team getTeam() {
 		return team;
 	}
 
-	public void setTeam(int team) {
+	public void setTeam(Team team) {
 		this.team = team;
 	}
 
